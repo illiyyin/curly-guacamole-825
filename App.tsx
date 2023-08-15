@@ -1,20 +1,35 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StatusBar } from 'expo-status-bar'
+import { StyleSheet, Text, View } from 'react-native'
+import { useState } from 'react'
+import CustomButton from './src/components/CustomButton'
+import CustomTextInput from './src/components/CustomTextInput'
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+	const [inputText, setInputText] = useState<string>('')
+
+	return (
+		<View style={styles.container}>
+			<CustomButton
+				text={inputText}
+				backgroundColor='#DDDDDD'
+				color='#39494F'
+				width='100%'
+			/>
+			<CustomTextInput
+				label='ini label'
+				text={inputText}
+				onChange={setInputText}
+			/>
+			<StatusBar style='auto' />
+		</View>
+	)
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+	container: {
+		display: 'flex',
+		flexDirection: 'column',
+		justifyContent: 'center',
+		padding: 40,
+	},
+})
