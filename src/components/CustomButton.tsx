@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ButtonHTMLAttributes } from 'react'
 import {
 	TouchableOpacity,
 	Text,
@@ -6,13 +6,13 @@ import {
 	DimensionValue,
 } from 'react-native'
 
-type PropsCustomButton = {
+type PropsCustomButton = ButtonHTMLAttributes<HTMLButtonElement> & {
 	text?: string
 	backgroundColor: string
 	color?: string
 	onPress?: () => void
 	fontSize?: number
-  width?: DimensionValue
+	width?: DimensionValue
 }
 
 // interface PropsCustomButton{
@@ -42,7 +42,11 @@ export default function CustomButton({
 	})
 
 	return (
-		<TouchableOpacity style={styles.button} onPress={onPress} activeOpacity={70}>
+		<TouchableOpacity
+			style={styles.button}
+			onPress={onPress}
+			activeOpacity={70}
+		>
 			<Text style={styles.buttonText}>{text}</Text>
 		</TouchableOpacity>
 	)
