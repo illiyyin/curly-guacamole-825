@@ -23,7 +23,7 @@ export default function App() {
 				onChange={setInputText}
 			/>
 			<StatusBar style='auto' />
-			<Text>Value Env= {env}</Text>
+			<Text>Value Env={env}</Text>
 		</View>
 	)
 }
